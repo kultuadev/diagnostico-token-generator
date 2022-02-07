@@ -11,13 +11,11 @@ function randomTokens(codCliente, qntsToken, limit) {
         let endToken = chars.slice(rndInt)  
 
         let token = startToken + codCliente + endToken
-
         
-        console.log(token)
         tokens.push(token)
     }
 
-    return tokens.toString()
+    return tokens
 }
 
 function randomChar(length) {
@@ -37,7 +35,14 @@ function generateTokens() {
 
     tokens = randomTokens(codCliente, qntTokens, limit)
 
-    let table = document.querySelector("table")
+    /*let div = document.getElementById("tokens")
+    tokens.forEach(token => {
+        let text = document.createTextNode(token)
+        div.appendChild(text)
+        
+    });*/
+
+    let table = document.querySelector('table')
     tokens.forEach(token => {
         let row = table.insertRow()
         let cell = row.insertCell()
@@ -45,4 +50,6 @@ function generateTokens() {
         cell.appendChild(text)
         
     });
+
+    
 }
